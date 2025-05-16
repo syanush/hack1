@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  langflow:
-    image: langflowai/langflow:latest
-    ports:
-      - 7860:7860
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
