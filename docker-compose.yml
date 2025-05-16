@@ -1,0 +1,10 @@
+services:
+  langflow:
+    image: ghcr.io/logspace-ai/langflow:latest
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./data/flows:/app/langflow/flows
+      - ./custom_components:/app/custom_components
+    environment:
+      - LANGFLOW_COMPONENTS_DIR=/app/custom_components
