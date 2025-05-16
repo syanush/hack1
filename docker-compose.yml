@@ -1,9 +1,9 @@
-version: "3.8"
+version: '3.8'
 
 services:
   langflow:
-    image: ghcr.io/logspace-ai/langflow:latest
+    image: langflowai/langflow:latest
     ports:
-      - "7860:7860"
+      - 7860:7860
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
