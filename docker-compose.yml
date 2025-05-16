@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16
+    container_name: langflow-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./database/init_test_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  langflow:
+    image: langflowai/langflow:latest
+    container_name: langflow-app
+    depends_on:
+      - db
+    ports:
+      - "7860:7860"
+
+volumes:
+  db_data:
